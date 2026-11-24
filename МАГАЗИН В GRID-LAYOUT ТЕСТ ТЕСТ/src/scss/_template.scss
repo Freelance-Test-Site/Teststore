@@ -1,0 +1,159 @@
+/*ШАБЛОНЫ****************************************************************************************************************************************/
+
+//Заголовки и текст
+// Миксины - шрифт
+@mixin fontz($fz, $fw, $col) {
+	font-size: $fz;
+	font-weight: $fw;
+	color: $col;
+}
+//h1
+%h1-title {
+	@include fontz(50px, 700, black);
+	letter-spacing: 1px;
+}
+
+// Шаблон для кнопки
+%button-standard {
+	// border: 1px solid $COLOR_BLACK;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 5px 4px $COLOR_BLACK;
+	box-shadow: 0px 5px 4px $COLOR_BLACK; //inset 0px 0px 0px $COLOR_BLACK;
+	background-color: $CUSTOM_COLOR_BUTTON_STANDARD_DEFAULT;
+	display: inline-block;
+	line-height: 50px;
+	// width: 250px;
+	height: 50px;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	// position: relative;
+	// top: 0px;
+	// left: 0px;
+	padding: 0px 30px;
+	@include fontz(16px, 400, $COLOR_BLACK);
+	// &:hover{
+	// 	background-color: $CUSTOM_COLOR_BUTTON_STANDARD_HOVER;
+	// }
+	// &:active{
+	// 	background-color: $CUSTOM_COLOR_BUTTON_STANDARD_ACTIVE;
+	// 	box-shadow: 0px 2px 4px $COLOR_BLACK; //inset 0px 0px 0px $COLOR_BLACK;
+	// 	position: relative;
+	// 	top: 3px;
+	// 	left: 0px;
+	// }
+}
+// Шаблон для ссылок
+%Link-standard {
+	text-decoration: underline;
+	&:hover {
+		color: $COLOR_BLUE;
+	}
+	&:active {
+		color: $COLOR_RED;
+	}
+	&:visited {
+		color: $COLOR_GREEN;
+	}
+}
+
+// Шаблон для формы input
+%form-input {
+	border: 1px solid $COLOR_BLACK;
+	width: 280px;
+	height: 35px;
+	background-color: $COLOR_WHITE;
+	@include fontz(20px, 400, $COLOR_BLACK);
+	&:focus {
+		box-shadow: 1px 0px 8px $COLOR_BLACK; //inset 0px 0px 8px $COLOR_BLACK;
+	}
+}
+
+//Стрелки слайдера
+%swiper-arrows-prev {
+	background-color: $CUSTOM_COLOR_SWIPER_ARROW;
+	width: 100px;
+	height: 150px;
+	position: absolute;
+	top: 50%;
+	left: 60px;
+	&:after {
+		font-size: 90px;
+		color: $COLOR_WHITE;
+	}
+	&:hover {
+		background-color: $CUSTOM_COLOR_SWIPER_ARROW_HOVER;
+	}
+}
+%swiper-arrows-next {
+	background-color: $CUSTOM_COLOR_SWIPER_ARROW;
+	width: 100px;
+	height: 150px;
+	position: absolute;
+	right: 60px;
+	&:after {
+		font-size: 90px;
+		color: $COLOR_WHITE;
+	}
+	&:hover {
+		background-color: $CUSTOM_COLOR_SWIPER_ARROW_HOVER;
+	}
+}
+//Буллеты
+%pagination {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	background-color: $COLOR_WHITE;
+}
+
+//Меню-бургер
+%menu {
+	display: block;
+	position: absolute;
+	top: 18px;
+	right: 30px;
+	width: 35px;
+	height: 18px;
+	cursor: pointer;
+	z-index: 10;
+	span {
+		top: calc(50% - 1px);
+		left: 0;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		background-color: white;
+		transition: all 0.3s ease 0s;
+		&:first-child {
+			top: -3px;
+		}
+		&:nth-child(2) {
+			width: 60%;
+			left: 20%;
+		}
+		&:last-child {
+			top: auto;
+			bottom: -3px;
+		}
+	}
+	&._active {
+		span{
+			&:nth-child(2) {
+				transform: scale(0) translate(0px, -50%);
+			}
+			&:first-child {
+				top: 50%;
+				transform: rotate(-45deg) translate(0px, -50%);
+			}
+			&:last-child {
+				bottom: 50%;
+				transform: rotate(40deg) translate(0px, 50%);
+			}
+		}
+	}
+}
+
+/**************************************************************************************************************************************/
