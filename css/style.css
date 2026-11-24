@@ -1,0 +1,336 @@
+@charset "UTF-8";
+/*****************************************************************Файл обнуления*********************************************************************/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside, section, main {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/**************************************************************************************************************************************/
+/****************************************************************Цвета******************************************************************/
+/**************************************************************************************************************************************/
+/*ШАБЛОНЫ****************************************************************************************************************************************/
+/**************************************************************************************************************************************/
+/*<HEADER>*************************************************************************************************************************************************/
+/****************************************************************Header**********************************************************************/
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template: 1fr/1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+  align-items: center;
+  background-color: rgb(134, 180, 209);
+  padding: 15px;
+}
+.header__logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  grid-column: 2/3;
+}
+.header__list {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: end;
+}
+.header__list-link {
+  font-size: 1.2rem;
+  text-decoration: underline;
+  color: white;
+}
+.header__burger {
+  font-size: 2rem;
+}
+
+/*******************************************************************************************************************************************/
+/****************************************************************Header-display**********************************************************************/
+/*******************************************************************************************************************************************/
+/*</HEADER>*************************************************************************************************************************************************/
+/*<BODY>*************************************************************************************************************************************************/
+body {
+  background-color: #fafafa;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+body._pc .menu__list > li:hover .menu__sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+  pointer-events: all;
+}
+body._touch .menu__arrow {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0px 0px 0px 5px;
+  transition: transform 0.3s ease 0s;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid rgb(255, 255, 255);
+}
+body._touch .menu__list > li {
+  display: flex;
+  align-items: center;
+}
+body._touch .menu__list > li._active .menu__arrow {
+  transform: rotate(-180deg);
+}
+body._touch .menu__list > li._active .menu__sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+  pointer-events: all;
+  z-index: 5;
+}
+body._lock {
+  overflow: hidden;
+}
+
+/*</BODY>*************************************************************************************************************************************************/
+/*<WRAPPER>********************************************************************************************************************************************/
+.wrapper {
+  display: grid;
+  min-height: 100%;
+  overflow: hidden;
+  grid-template: minmax(100px, auto) 1fr minmax(70px, auto)/1fr;
+  grid-template-areas: "header" "page" "footer";
+}
+
+/*</WRAPPER>********************************************************************************************************************************************/
+/*<ОСНОВНАЯ ОБЁРТКА>*************************************************************************************************************************************/
+._container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0px 15px;
+  box-sizing: content-box;
+}
+
+._ibg {
+  position: relative;
+}
+._ibg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*</ОСНОВНАЯ ОБЁРТКА>*************************************************************************************************************************************/
+/*<PAGE>*************************************************************************************************************************************/
+.page {
+  padding: 50px 15px;
+  gap: 15px;
+}
+
+/*</PAGE>*************************************************************************************************************************************/
+/**<ОСНОВНОЙ КОНТЕНТ>**************************************************************************************************************************************************/
+.sidebar {
+  padding: 30px 15px;
+  background-color: rgba(44, 213, 143, 0.338);
+  margin: 0px 0px 20px 0px;
+}
+.sidebar__list li {
+  margin: 0px 0px 15px 0px;
+}
+.sidebar__list-link {
+  color: rgb(211, 10, 10);
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+
+.content-block {
+  grid-column: 3/4;
+}
+.content-block__title {
+  font-size: 2rem;
+  margin: 0px 0px 35px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.gallery {
+  display: grid;
+  margin: 0px 0px 50px 0px;
+  gap: 10px;
+}
+.gallery__title {
+  font-size: 1.5rem;
+  margin: 0px 0px 35px 0px;
+  text-transform: uppercase;
+}
+.gallery__items {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.gallery__item {
+  padding: 0px 0px 75% 0px;
+}
+
+.products__title {
+  font-size: 1.5rem;
+  margin: 0px 0px 35px 0px;
+  text-transform: uppercase;
+}
+.products__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  row-gap: 50px;
+  grid-auto-rows: auto;
+}
+.products__item {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template: auto 1fr minmax(40px, auto)/1fr;
+}
+.products__item:hover {
+  background-color: rgb(238, 236, 236);
+  box-shadow: 0.5px 0.5px 10px rgba(0, 0, 0, 0.355);
+}
+.products__image {
+  position: relative;
+  padding: 0px 0px 90% 0px;
+  margin: 0px 0px 20px 0px;
+}
+.products__name {
+  margin: 0px 0px 20px 0px;
+  font-size: 1.2rem;
+  padding: 10px;
+  color: black;
+  text-decoration: underline;
+}
+.products__button {
+  font-size: 1.4rem;
+  color: black;
+  font-weight: bold;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(23, 23, 130, 0.618);
+}
+.products__button:hover {
+  background-color: rgba(101, 101, 246, 0.618);
+}
+.products__button:active {
+  background-color: rgba(0, 0, 255, 0.618);
+}
+
+/*</ОСНОВНОЙ КОНТЕНТ>***************************************************************************************************************************************************/
+/*<ID>**************************************************************************************************************************************************/
+/*</ID>**************************************************************************************************************************************************/
+/**<FOOTER>********************************************************************************************************************************************/
+/****************************************************************Footer**********************************************************************/
+.footer {
+  display: grid;
+  grid-template: 1fr/1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+  align-items: center;
+  justify-content: start;
+  padding: 15px;
+  grid-area: footer;
+  background-color: rgb(0, 255, 0);
+}
+.footer__copy {
+  grid-column: 2/3;
+}
+.footer__text {
+  grid-column: 3/4;
+  text-align: right;
+}
+
+/*******************************************************************************************************************************************/
+/****************************************************************Footer-display**********************************************************************/
+/*******************************************************************************************************************************************/
+/**</FOOTER>********************************************************************************************************************************************/
+/*АДАПТИВНОСТЬ******************************************************************************************************************************************************/
+/**<HEADER>************************************************************************************************************************************/
+@media (min-width: 538.98px) {
+  .big-picture {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+@media (min-width: 991.98px) {
+  .page {
+    display: grid;
+    grid-area: page;
+    grid-template: 1fr/1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+  }
+  .sidebar {
+    grid-column: 2/3;
+  }
+}
+/**</HEADER>************************************************************************************************************************************/
+/**<CONTENT>************************************************************************************************************************************/
+/**</CONTENT>************************************************************************************************************************************/
+/**<FOOTER>************************************************************************************************************************************/
+/**</FOOTER>************************************************************************************************************************************/
+/********************************************************************************************************************************************************/
